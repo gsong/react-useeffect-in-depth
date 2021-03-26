@@ -17,7 +17,7 @@ const ExploreMore = () => (
           <code>React.useCallback</code>
         </a>{" "}
         to create <code>updateLog()</code> in the <code>useLog</code> hook? Why
-        doesn’t it need any dependencies declared?
+        does it have an empty array as its dependencies?
       </li>
       <li>
         Why doesn't <code>useRenderCount.updateCount()</code> cause renders?
