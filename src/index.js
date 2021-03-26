@@ -7,7 +7,7 @@ import ExploreMore from "./widgets/ExploreMore";
 import Log from "./widgets/Log";
 import { useAuth, useLog, useRenderCount, useDemo } from "./hooks";
 
-const Auth = React.createContext(); // 🌐
+const Auth = React.createContext(); // 🌎
 
 const App = () => {
   const [auth, toggleIsAuthenticated] = useAuth();
@@ -43,7 +43,7 @@ const App = () => {
             }}
           />
           {shouldMountDemo ? (
-            <Auth.Provider value={auth}>
+            <Auth.Provider value={auth} /* 🌎 */>
               <Demo {...{ label, updateLog }} />
             </Auth.Provider>
           ) : (
@@ -63,7 +63,7 @@ const App = () => {
 
 // 🌊
 const Demo = React.memo(({ label, updateLog: _updateLog }) => {
-  const { isAuthenticated } = React.useContext(Auth);
+  const { isAuthenticated } = React.useContext(Auth); // 🌎
   const renderCount = useDemoSetup({
     label,
     isAuthenticated,

@@ -25,7 +25,7 @@ const Explainer = () => (
         </p>
         <ul>
           <li>
-            🌐 <code>Auth</code> context
+            🌎 <code>Auth</code> context
           </li>
           <li>
             🌊 <code>Demo</code> component
@@ -56,7 +56,7 @@ const Explainer = () => (
             Which effects run when you change the <code>label</code> prop?
           </li>
           <li>
-            Which effects run when you change the 🌐 <code>Auth</code> context?
+            Which effects run when you change the 🌎 <code>Auth</code> context?
           </li>
           <li>
             What causes a component to render? What constitutes{" "}

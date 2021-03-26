@@ -66,7 +66,7 @@ const ToggleLogin = React.memo(
     const onClick = () => {
       toggleIsAuthenticated();
       updateLog(
-        `🌐 context changed ${JSON.stringify({
+        `🌎 context changed ${JSON.stringify({
           isAuthenticated,
         })} → ${JSON.stringify({ isAuthenticated: !isAuthenticated })}`
       );
@@ -74,7 +74,7 @@ const ToggleLogin = React.memo(
 
     return (
       <button {...{ onClick }}>
-        🌐 {isAuthenticated ? "Logout" : "Login"}
+        🌎 {isAuthenticated ? "Logout" : "Login"}
       </button>
     );
   }
