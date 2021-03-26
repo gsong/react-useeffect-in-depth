@@ -19,7 +19,9 @@ const Log = ({ log }) => {
       ref={container}
     >
       {log.map((l, i) => (
-        <code key={i}>{l}</code>
+        <code style={{ fontSize: 16 }} key={i}>
+          {l}
+        </code>
       ))}
     </div>
   );
