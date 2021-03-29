@@ -12,7 +12,14 @@ export const useAuth = () => {
 };
 
 export const useLog = () => {
-  const [log, setLog] = React.useState([]);
+  const [log, setLog] = React.useState([
+    <>
+      State values within the execution context is appended to each log entry.
+      E.g. “🚂 Running Effect1 <strong>#8</strong> {"{😼: 5, 🐶: 4}"}” means
+      we're running Effect1 with the state values of {"{😼: 5, 🐶: 4}"} from the
+      8th render cycle of the Demo component.
+    </>,
+  ]);
   const updateLog = React.useCallback(
     (logItem) => setLog((l) => [...l, logItem]),
     []
