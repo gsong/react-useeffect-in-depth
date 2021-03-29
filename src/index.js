@@ -1,6 +1,8 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 
+import Emoji from "a11y-react-emoji";
+
 import DemoControls from "./widgets/DemoControls";
 import Explainer from "./widgets/Explainer";
 import ExploreMore from "./widgets/ExploreMore";
@@ -42,6 +44,7 @@ const App = () => {
               updateLog,
             }}
           />
+
           {shouldMountDemo ? (
             <Auth.Provider value={auth} /* 🌎 */>
               <Demo {...{ label, updateLog }} />
@@ -63,26 +66,24 @@ const App = () => {
 
 // 🌊
 const Demo = React.memo(({ label, updateLog: _updateLog }) => {
+  const renderCount = useDemoSetup(_updateLog);
+
   const { isAuthenticated } = React.useContext(Auth); // 🌎
-  const renderCount = useDemoSetup({
-    label,
-    isAuthenticated,
-    updateLog: _updateLog,
-  });
   const [state1, setState1] = React.useState(1); // 😼
   const [state2, setState2] = React.useState(1); // 🐶
 
-  // 🚂 Effect1
   React.useEffect(() => {
+    // 🚂 Effect1
     const { runMessage, cleanupMessage } = createMessages("🚂", "Effect1");
     updateLog(runMessage);
 
     // 🚂🗑 Effect1 cleanup
     return () => updateLog(cleanupMessage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state1]);
 
-  // 🚀 Effect2
   React.useEffect(() => {
+    // 🚀 Effect2
     const { runMessage, cleanupMessage } = createMessages("🚀", "Effect2");
     updateLog(runMessage);
 
@@ -90,13 +91,14 @@ const Demo = React.memo(({ label, updateLog: _updateLog }) => {
     return () => updateLog(cleanupMessage);
   });
 
-  // 🚙 Effect3
   React.useEffect(() => {
+    // 🚙 Effect3
     const { runMessage, cleanupMessage } = createMessages("🚙", "Effect3");
     updateLog(runMessage);
 
     // 🚙🗑 Effect3 cleanup
     return () => updateLog(cleanupMessage);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const createMessages = (icon, label) => ({
@@ -121,7 +123,9 @@ const Demo = React.memo(({ label, updateLog: _updateLog }) => {
 
   return (
     <div style={{ border: "2px solid blue", padding: 4 }}>
-      <h4 style={{ margin: 0 }}>🌊 {label}</h4>
+      <h4 style={{ margin: 0 }}>
+        <Emoji symbol="🌊" /> {label}
+      </h4>
       <p>({isAuthenticated ? "Authenticated" : "Not authenticated"})</p>
       <StateControl
         label="State1"
@@ -161,7 +165,7 @@ const StateControl = ({ label, icon, state, setState, updateLog }) => {
   );
 };
 
-const useDemoSetup = ({ label, isAuthenticated, updateLog }) => {
+const useDemoSetup = (updateLog) => {
   const [renderCount, updateRenderCount] = useRenderCount();
   React.useEffect(() => {
     updateLog(

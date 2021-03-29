@@ -1,13 +1,9 @@
 import * as React from "react";
 
-import { isEqual } from "lodash";
-
 export const useAuth = () => {
   const [auth, setAuth] = React.useState({ isAuthenticated: false });
-  const toggleIsAuthenticated = React.useCallback(
-    () => setAuth((auth) => ({ isAuthenticated: !auth.isAuthenticated })),
-    [auth]
-  );
+  const toggleIsAuthenticated = () =>
+    setAuth((auth) => ({ isAuthenticated: !auth.isAuthenticated }));
   return [auth, toggleIsAuthenticated];
 };
 

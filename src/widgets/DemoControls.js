@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { isEqual } from "lodash";
+import Emoji from "a11y-react-emoji";
 
 const DemoControls = ({
   label,
@@ -22,7 +22,7 @@ const DemoControls = ({
   </div>
 );
 
-const UpdateDemoLabel = React.memo(({ label, setLabel, updateLog }) => {
+const UpdateDemoLabel = ({ label, setLabel, updateLog }) => {
   const input = React.useRef();
 
   const updateLabel = (newLabel) => {
@@ -40,8 +40,7 @@ const UpdateDemoLabel = React.memo(({ label, setLabel, updateLog }) => {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        const newLabel = input.current.value;
-        updateLabel(newLabel);
+        updateLabel(input.current.value);
       }}
       style={{
         display: "flex",
@@ -55,34 +54,33 @@ const UpdateDemoLabel = React.memo(({ label, setLabel, updateLog }) => {
         <input defaultValue={label} ref={input} style={{ flex: 1 }} />
       </label>
       <button style={{ marginTop: 8 }}>
-        🌊 Change Demo <code>label</code> prop
+        <Emoji symbol="🌊" /> Change Demo <code>label</code> prop
       </button>
     </form>
   );
-});
+};
 
-const ToggleLogin = React.memo(
-  ({ isAuthenticated, toggleIsAuthenticated, updateLog }) => {
-    const onClick = () => {
-      toggleIsAuthenticated();
-      updateLog(
-        `🌎 context changed ${JSON.stringify({
-          isAuthenticated,
-        })} → ${JSON.stringify({ isAuthenticated: !isAuthenticated })}`
-      );
-    };
-
-    return (
-      <button {...{ onClick }}>
-        🌎 {isAuthenticated ? "Logout" : "Login"}
-      </button>
+const ToggleLogin = ({ isAuthenticated, toggleIsAuthenticated, updateLog }) => {
+  const onClick = () => {
+    toggleIsAuthenticated();
+    updateLog(
+      `🌎 context changed ${JSON.stringify({
+        isAuthenticated,
+      })} → ${JSON.stringify({ isAuthenticated: !isAuthenticated })}`
     );
-  }
-);
+  };
+
+  return (
+    <button {...{ onClick }}>
+      <Emoji symbol="🌎" /> {isAuthenticated ? "Logout" : "Login"}
+    </button>
+  );
+};
 
 const MountDemo = ({ isDemoMounted, mountDemo, unmountDemo }) => (
   <button onClick={() => (isDemoMounted ? unmountDemo() : mountDemo())}>
-    🌊 {isDemoMounted ? "Unmount Demo component" : "Mount Demo component"}
+    <Emoji symbol="🌊" />{" "}
+    {isDemoMounted ? "Unmount Demo component" : "Mount Demo component"}
   </button>
 );
 

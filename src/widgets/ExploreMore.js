@@ -1,5 +1,3 @@
-import * as React from "react";
-
 const ExploreMore = () => (
   <>
     <p>More things to explore:</p>

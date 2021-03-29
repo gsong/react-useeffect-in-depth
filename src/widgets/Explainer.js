@@ -1,4 +1,4 @@
-import * as React from "react";
+import Emoji from "a11y-react-emoji";
 
 const Explainer = () => (
   <>
@@ -11,36 +11,31 @@ const Explainer = () => (
     </p>
     <div style={{ display: "flex" }}>
       <div style={{ width: "40%" }}>
-        <p>
-          Here are some of the players you’ll see in the log below. Each effect
-          run and cleanup is associated with a specific render cycle (e.g.{" "}
-          <strong>
-            <code>#1</code>
-          </strong>
-          ,{" "}
-          <strong>
-            <code>#2</code>
-          </strong>
-          ):
-        </p>
+        <p>Here are the players you’ll see in the log below:</p>
         <ul>
           <li>
-            🌎 <code>Auth</code> context
+            <Emoji symbol="🌎" /> <code>Auth</code> context
           </li>
           <li>
-            🌊 <code>Demo</code> component
+            <Emoji symbol="🌊" /> <code>Demo</code> component
             <ul>
-              <li>😼 State1</li>
-              <li>🐶 State2</li>
               <li>
-                🚂 Effect1 (runs <em>only</em> when State1 changes)
+                <Emoji symbol="😼" /> State1
               </li>
               <li>
-                🚀 Effect2 (runs on <em>any state change</em>, with every
-                render)
+                <Emoji symbol="🐶" /> State2
               </li>
               <li>
-                🚙 Effect3 (runs <em>only</em> on component first render)
+                <Emoji symbol="🚂" /> Effect1 (runs <em>only</em> when State1
+                changes)
+              </li>
+              <li>
+                <Emoji symbol="🚀" /> Effect2 (runs on <em>any state change</em>
+                , with every render)
+              </li>
+              <li>
+                <Emoji symbol="🚙" /> Effect3 (runs <em>only</em> on component
+                first render)
               </li>
             </ul>
           </li>
@@ -50,32 +45,42 @@ const Explainer = () => (
       <div style={{ marginLeft: 32, width: "60%" }}>
         <p>Some things to explore:</p>
         <ul>
-          <li>Which effects run when you change 😼 State1?</li>
-          <li>Which effects run when you change 🐶 State2?</li>
+          <li>
+            Which effects run when you change <Emoji symbol="😼" /> State1?
+          </li>
+          <li>
+            Which effects run when you change <Emoji symbol="🐶" /> State2?
+          </li>
           <li>
             Which effects run when you change the <code>label</code> prop?
           </li>
           <li>
-            Which effects run when you change the 🌎 <code>Auth</code> context?
+            Which effects run when you change the <Emoji symbol="🌎" />{" "}
+            <code>Auth</code> context?
           </li>
           <li>
             What causes a component to render? What constitutes{" "}
             <code>state</code> for a component?
           </li>
           <li>
-            Change 🐶 State2, then 😼 State1. When does 🚂 Effect1 cleanup run?
-            What are the state values it’s running with?
+            Change <Emoji symbol="🐶" /> State2, then <Emoji symbol="😼" />{" "}
+            State1. When does <Emoji symbol="🚂" /> Effect1 cleanup run? What
+            are the state values it’s running with?
           </li>
           <li>When do effects run?</li>
           <li>When do effect cleanups run?</li>
           <li>
-            What are the values of 😼 and 🐶 <em>during</em> and <em>after</em>{" "}
+            What are the values of <Emoji symbol="😼" /> and{" "}
+            <Emoji symbol="🐶" /> <em>during</em> and <em>after</em>{" "}
             <code>setState</code>?
           </li>
           <li>
-            What are the values of 😼 and 🐶 during effect runs and cleanups?
+            What are the values of <Emoji symbol="😼" /> and{" "}
+            <Emoji symbol="🐶" /> during effect runs and cleanups?
           </li>
-          <li>When does 🚙 Effect3 cleanup run?</li>
+          <li>
+            When does <Emoji symbol="🚙" /> Effect3 cleanup run?
+          </li>
         </ul>
       </div>
     </div>
