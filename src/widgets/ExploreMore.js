@@ -10,14 +10,6 @@ const ExploreMore = () => (
         the <code>Demo</code> component?
       </li>
       <li>
-        Why do we need to use{" "}
-        <a href="https://reactjs.org/docs/hooks-reference.html#usecallback">
-          <code>React.useCallback()</code>
-        </a>{" "}
-        to create <code>updateLog()</code> in the <code>useLog</code> hook? Why
-        does it have an empty array as its dependencies?
-      </li>
-      <li>
         Why doesn't <code>useRenderCount.updateCount()</code> cause renders?{" "}
         <a href="https://reactjs.org/docs/hooks-reference.html#useref">
           Read about the <code>React.useRef()</code> hook

@@ -1,14 +1,12 @@
 import * as React from "react";
 
-export const useAuth = () => {
-  const [auth, setAuth] = React.useState({ isAuthenticated: false });
-  const toggleIsAuthenticated = () =>
-    setAuth((auth) => ({ isAuthenticated: !auth.isAuthenticated }));
-  return [auth, toggleIsAuthenticated];
-};
+export const useAuth = () =>
+  React.useReducer((auth) => ({ isAuthenticated: !auth.isAuthenticated }), {
+    isAuthenticated: false,
+  });
 
-export const useLog = () => {
-  const [log, setLog] = React.useState([
+export const useLog = () =>
+  React.useReducer((log, item) => [...log, item], [
     <>
       State values within the execution context is appended to each log entry.
       E.g. “🚂 Running Effect1 <strong>#8</strong> {"{😼: 5, 🐶: 4}"}” means
@@ -16,12 +14,6 @@ export const useLog = () => {
       8th render cycle of the Demo component.
     </>,
   ]);
-  const updateLog = React.useCallback(
-    (logItem) => setLog((l) => [...l, logItem]),
-    []
-  );
-  return [log, updateLog];
-};
 
 export const useDemo = (updateLog) => {
   const [shouldMountDemo, setShouldMountDemo] = React.useState(true);
