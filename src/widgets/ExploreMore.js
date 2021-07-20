@@ -1,5 +1,5 @@
 const ExploreMore = () => (
-  <>
+  <section>
     <p>More things to explore:</p>
     <ul>
       <li>
@@ -26,7 +26,7 @@ const ExploreMore = () => (
       <li>How would you improve this example?</li>
       <li>How would you refactor this example?</li>
     </ul>
-  </>
+  </section>
 );
 
 export default ExploreMore;

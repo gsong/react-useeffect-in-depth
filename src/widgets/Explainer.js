@@ -1,7 +1,7 @@
 import Emoji from "a11y-react-emoji";
 
 const Explainer = () => (
-  <>
+  <section>
     <p>
       This example demonstrates why a component renders, and when{" "}
       <a href="https://reactjs.org/docs/hooks-reference.html#useeffect">
@@ -84,7 +84,7 @@ const Explainer = () => (
         </ul>
       </div>
     </div>
-  </>
+  </section>
 );
 
 export default Explainer;

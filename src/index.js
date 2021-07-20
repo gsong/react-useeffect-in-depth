@@ -19,10 +19,10 @@ const App = () => {
   const { shouldMountDemo, mountDemo, unmountDemo } = useDemo(updateLog);
 
   return (
-    <>
+    <main>
       <Explainer />
 
-      <div style={{ display: "flex" }}>
+      <section style={{ display: "flex" }}>
         <div className={styles.actionPanel}>
           <DemoControls
             isDemoMounted={shouldMountDemo}
@@ -49,10 +49,10 @@ const App = () => {
         <div className={styles.logPanel}>
           <Log log={log} />
         </div>
-      </div>
+      </section>
 
       <ExploreMore />
-    </>
+    </main>
   );
 };
 
