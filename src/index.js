@@ -126,7 +126,10 @@ const Demo = React.memo(({ label, updateLog: _updateLog }) => {
       <h4 style={{ margin: 0 }}>
         <Emoji symbol="🌊" /> {label}
       </h4>
-      <p>({isAuthenticated ? "Authenticated" : "Not authenticated"})</p>
+      <p>
+        <Emoji symbol="🌎" /> (
+        {isAuthenticated ? "Authenticated" : "Not authenticated"})
+      </p>
       <StateControl
         label="State1"
         icon="😼"
