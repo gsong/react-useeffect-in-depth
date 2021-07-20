@@ -3,13 +3,12 @@ import ReactDOM from "react-dom";
 
 import Emoji from "a11y-react-emoji";
 
+import { useAuth, useLog, useRenderCount, useDemo } from "./hooks";
+import styles from "./styles.module.scss";
 import DemoControls from "./widgets/DemoControls";
 import Explainer from "./widgets/Explainer";
 import ExploreMore from "./widgets/ExploreMore";
 import Log from "./widgets/Log";
-import { useAuth, useLog, useRenderCount, useDemo } from "./hooks";
-
-import styles from "./styles.module.scss";
 
 const Auth = React.createContext(); // 🌎
 
