@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import styles from "./styles.module.scss";
+
 const Log = ({ log }) => {
   const container = React.useRef();
 
@@ -8,20 +10,9 @@ const Log = ({ log }) => {
   });
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: 450,
-        maxHeight: 450,
-        overflow: "scroll",
-      }}
-      ref={container}
-    >
+    <div className={styles.container} ref={container}>
       {log.map((l, i) => (
-        <code style={{ fontSize: 16 }} key={i}>
-          {l}
-        </code>
+        <code key={i}>{l}</code>
       ))}
     </div>
   );

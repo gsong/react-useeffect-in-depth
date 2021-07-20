@@ -1,0 +1,32 @@
+@import "../_styles.scss";
+
+.container {
+  @include flex-column;
+
+  hr {
+    width: 100%;
+    margin: 12px 0;
+  }
+}
+
+.form {
+  @include flex-column;
+
+  label {
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+      margin-right: 4px;
+    }
+  }
+
+  input {
+    flex: 1 1;
+    min-width: 50%;
+  }
+
+  button {
+    margin-top: 8px;
+  }
+}

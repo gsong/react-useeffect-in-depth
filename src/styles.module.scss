@@ -1,0 +1,33 @@
+@mixin border {
+  border: 1px solid lightgrey;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+}
+
+.actionPanel {
+  @include border;
+
+  padding: 8px;
+  min-width: 25%;
+  width: 25%;
+}
+
+.logPanel {
+  @include border;
+
+  margin-left: 16px;
+  padding: 4px;
+}
+
+.demo {
+  border: 2px solid blue;
+  padding: 4px;
+
+  h4 {
+    margin: 0;
+  }
+}

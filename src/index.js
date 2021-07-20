@@ -9,6 +9,8 @@ import ExploreMore from "./widgets/ExploreMore";
 import Log from "./widgets/Log";
 import { useAuth, useLog, useRenderCount, useDemo } from "./hooks";
 
+import styles from "./styles.module.scss";
+
 const Auth = React.createContext(); // 🌎
 
 const App = () => {
@@ -17,21 +19,12 @@ const App = () => {
   const [log, updateLog] = useLog();
   const { shouldMountDemo, mountDemo, unmountDemo } = useDemo(updateLog);
 
-  const border = "1px solid lightgray";
-
   return (
     <>
       <Explainer />
 
       <div style={{ display: "flex" }}>
-        <div
-          style={{
-            border,
-            padding: 8,
-            minWidth: "25%",
-            width: "25%",
-          }}
-        >
+        <div className={styles.actionPanel}>
           <DemoControls
             isDemoMounted={shouldMountDemo}
             {...{
@@ -54,7 +47,7 @@ const App = () => {
           )}
         </div>
 
-        <div style={{ border, marginLeft: 16, padding: 4 }}>
+        <div className={styles.logPanel}>
           <Log log={log} />
         </div>
       </div>
@@ -122,8 +115,8 @@ const Demo = React.memo(({ label, updateLog: _updateLog }) => {
     );
 
   return (
-    <div style={{ border: "2px solid blue", padding: 4 }}>
-      <h4 style={{ margin: 0 }}>
+    <div className={styles.demo}>
+      <h4>
         <Emoji symbol="🌊" /> {label}
       </h4>
       <p>

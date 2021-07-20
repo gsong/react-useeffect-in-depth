@@ -2,6 +2,8 @@ import * as React from "react";
 
 import Emoji from "a11y-react-emoji";
 
+import styles from "./styles.module.scss";
+
 const DemoControls = ({
   label,
   setLabel,
@@ -12,13 +14,13 @@ const DemoControls = ({
   toggleIsAuthenticated,
   updateLog,
 }) => (
-  <div style={{ display: "flex", flexDirection: "column" }}>
+  <div className={styles.container}>
     <UpdateDemoLabel {...{ label, setLabel, updateLog }} />
-    <Hr />
+    <hr />
     <ToggleLogin {...{ isAuthenticated, toggleIsAuthenticated, updateLog }} />
-    <Hr />
+    <hr />
     <MountDemo {...{ isDemoMounted, mountDemo, unmountDemo }} />
-    <Hr />
+    <hr />
   </div>
 );
 
@@ -42,18 +44,15 @@ const UpdateDemoLabel = ({ label, setLabel, updateLog }) => {
         e.preventDefault();
         updateLabel(input.current.value);
       }}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-      }}
+      className={styles.form}
     >
-      <label style={{ display: "flex" }}>
-        <div style={{ marginRight: 4 }}>
+      <label>
+        <div>
           <code>label</code> prop:
         </div>
-        <input defaultValue={label} ref={input} style={{ flex: 1 }} />
+        <input defaultValue={label} ref={input} />
       </label>
-      <button style={{ marginTop: 8 }}>
+      <button>
         <Emoji symbol="🌊" /> Change Demo <code>label</code> prop
       </button>
     </form>
@@ -83,7 +82,5 @@ const MountDemo = ({ isDemoMounted, mountDemo, unmountDemo }) => (
     {isDemoMounted ? "Unmount Demo component" : "Mount Demo component"}
   </button>
 );
-
-const Hr = () => <hr style={{ width: "100%", margin: "12px 0" }} />;
 
 export default DemoControls;
